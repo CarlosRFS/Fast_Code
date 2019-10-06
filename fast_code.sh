@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+#AUTOR ==> Carlos Raimundo de Freitas Sotero
+#Email ==> carlosrfs99@gmail.com
+
+
 #OBSERVAÇÔES
-#==> Adicionar mensagens de erro para diretorios invalidos e arquivos fonte nao encontrados
 #==> Adicionar função de passar como parametro o nome do arquivo se estiver no mesmo diretorio
 #==> Possibilidade de selecionar quais linhas do codigo devem ser enviadas
 #OPCIONAL==> Exibir o link para baixar o fonte do xclip se ele não estiver disponivel no sistema
@@ -15,16 +18,23 @@ verde="\033[34;1m"
 fim="\033[m"
 
 #Testando se o xclip esta presente no sistema
-which xclip >> saida.txt \
-&& echo -e "$verde Dependencias $azul OK!$fim" || $(echo "$vermelho Dependencia xclip não encontrada!$fim" && exit;)
-rm saida.txt
+if [[ -z xclip ]]; then
+	echo -e "$verde Dependencias $azul OK!$fim" 
+else
+	echo -e " $vermelho Dependencia xclip não encontrada!$fim" && exit;
+fi
+#rm saida.txt
 #=======================================================>
-read -p "Digite o diretorio onde se encontra o fonte: " dir
-cd $dir || $( echo -e "$vermelho Diretorio não encontrado!$fim" && exit; )
+if [[ $1 == 0 ]]; then
+	fonte=$1
+else
+	read -p "Digite o diretorio onde se encontra o fonte: " dir
+	cd $dir || $( echo -e "$vermelho Diretorio não encontrado!$fim" && exit; )
+	read -p "Digite o nome do fonte: " fonte
+fi
 
-read -p "Digite o nome do fonte: " fonte
 #testando se o arquivo existe
-cat $fonte || $( echo -e "$vermelho Arquivo não encontrado!$fim" && exit; )
+cat $fonte >> /dev/null || $( echo -e "$vermelho Arquivo não encontrado!$fim" && exit; )
 
 cat $fonte | netcat termbin.com 9999 >> fonte.txt
 xclip -selection "clipboard" fonte.txt \
