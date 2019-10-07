@@ -5,8 +5,8 @@
 
 
 #OBSERVAÇÔES
-#==> Adicionar função de passar como parametro o nome do arquivo se estiver no mesmo diretorio
 #==> Possibilidade de selecionar quais linhas do codigo devem ser enviadas
+# talvez usar o grep ou cat e salvar as linhas selecionadas num arquivo temporario
 #OPCIONAL==> Exibir o link para baixar o fonte do xclip se ele não estiver disponivel no sistema
 #==> Adicionar um menu para utilizar o script mais de uma vez
 #==> Adicionar parametro para habilitar/desabilitar o menu
@@ -18,12 +18,11 @@ verde="\033[34;1m"
 fim="\033[m"
 
 #Testando se o xclip esta presente no sistema
-if [[ -z xclip ]]; then
-	echo -e "$verde Dependencias $azul OK!$fim" 
-else
-	echo -e " $vermelho Dependencia xclip não encontrada!$fim" && exit;
-fi
-#rm saida.txt
+#if [[ $(type -p xclip) == 0 ]]; then
+#	echo -e "$verde Dependencias $azul OK!$fim" 
+#else
+#	echo -e "$vermelho Dependencia xclip não encontrada!$fim" && exit;
+#fi
 #=======================================================>
 if [[ $1 == 0 ]]; then
 	fonte=$1
