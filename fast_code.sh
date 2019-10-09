@@ -18,11 +18,8 @@ verde="\033[34;1m"
 fim="\033[m"
 
 #Testando se o xclip esta presente no sistema
-#if [[ $(type -p xclip) == 0 ]]; then
-#	echo -e "$verde Dependencias $azul OK!$fim" 
-#else
-#	echo -e "$vermelho Dependencia xclip não encontrada!$fim" && exit;
-#fi
+type xclip &>/dev/null && echo -e "$verde Dependencias $azul OK!$fim" || $( echo -e "$vermelho Dependencia xclip não encontrada!$fim" && exit )
+
 #=======================================================>
 if [[ $1 == 0 ]]; then
 	fonte=$1
