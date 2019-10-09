@@ -25,7 +25,7 @@ function link_clipboard(){
 #verificar os parametros posicionais
 if [[ $1 ]]; then
 	if [[ $2 ]]; then
-		a=$3-$2
+		a=$(( $3 - $2 ))
 		head -$3 $1 | tail -$a >> fonte.txt
 		fonte="fonte.txt"
 	else
