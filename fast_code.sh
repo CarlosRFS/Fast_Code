@@ -11,10 +11,13 @@ type "xclip" &>/dev/null \
 && echo -e "$azul Dependencias$verde OK! $fim" \
 || $( echo -e "$vermelho Dependencia xclip não encontrada! $fim" && exit )
 
-
+#testando se deve ser usado netcat ou ncat
+for i in "netcat" "ncat"; do
+	type $i &>/dev/null && nt=$i
+done
 #função 
 function link_clipboard(){
-	cat $fonte | netcat termbin.com 9999 >> link.txt
+	cat $fonte | $nt termbin.com 9999 >> link.txt
 	xclip -selection "clipboard" link.txt
 }
 
