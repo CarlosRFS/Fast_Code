@@ -11,12 +11,13 @@
 #Você pode tambem passar o nome do arquivo como primeiro parametro do programa como no exemplo abaixo
 
 ==> ./fast_code.sh exe.cpp
-#======================================
 
 :::::Enviando trechos de codigos
 #Tambem é possivel enviar apenas trechos do codigo especificando quais linhas enviar da seguinte 
 #forma
+
 ==> ./fast_code.sh exe.cpp 4 16
+
 #O primeiro parametro se trata do nome do arquivo, que pode tambem ser passado ao longo da execução
 #O segundo parametro se trata do numero da primeira linha do arquivo que sera copiada
 #Enquanto que o terceiro se trata da ultima linha a ser copiada
