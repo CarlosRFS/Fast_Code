@@ -6,6 +6,7 @@
 #assim todos tenham acesso rapido a ele.
 
 :::::Enviando o codigo fonte inteiro
+
 #Executando o script normalmente ele pedira o caminho do fonte, se estiver na mesma pasta em que esta
 #basta passar o nome do arquivo.
 #Você pode tambem passar o nome do arquivo como primeiro parametro do programa como no exemplo abaixo
@@ -13,6 +14,7 @@
 ==> ./fast_code.sh exe.cpp
 
 :::::Enviando trechos de codigos
+
 #Tambem é possivel enviar apenas trechos do codigo especificando quais linhas enviar da seguinte 
 #forma
 
